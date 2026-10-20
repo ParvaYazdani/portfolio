@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="doc.title.ai">AI Engineering | Parva Yazdani</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="nav-brand" href="index.html">Parva Yazdani</a>
+      <button class="nav-toggle" data-i18n-aria-label="nav.toggleAria" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="project-management.html" data-i18n="nav.pm">Project Management</a></li>
+        <li><a href="wireless-communication.html" data-i18n="nav.wireless">Wireless Communication</a></li>
+        <li><a href="ai-engineering.html" aria-current="page" data-i18n="nav.ai">AI Engineering</a></li>
+        <li class="nav-lang-item"><button class="lang-toggle" type="button">DE</button></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-intro">
+      <h1 data-i18n="ai.h1">AI Engineering</h1>
+      <p data-i18n="ai.intro">
+        Since moving from the wireless industrial communication team into the automation &amp;
+        digitalisation team, I've started building
+        LLM agents and RAG systems. So far this includes two tools: a document search agent
+        built as a demo, and a contract review agent requested by contract management in the finance department. We
+        worked out with that team what they really needed and then built the tool, which is now in
+        use. Looking ahead, I want to deepen my
+        expertise in Generative AI Engineering and gain more experience bringing tools into
+        production end to end.
+      </p>
+    </section>
+
+    <section class="section" aria-label="Timeline">
+      <h2 class="section-title" data-i18n="ai.timelineTitle">Timeline: Jan 2026 to present</h2>
+      <ol class="timeline">
+        <li class="timeline-item">
+          <span class="timeline-date">Jan 2026</span>
+          <p class="timeline-title"><a href="#proj-doc-intel" data-i18n="ai.tl1.title">Document Intelligence Agent: first RAG demo built</a></p>
+          <p class="timeline-note" data-i18n="ai.tl1.note">Early adoption of embedding-based retrieval and a local vector database, ahead of it becoming a default choice.</p>
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-date">Apr 2026</span>
+          <p class="timeline-title"><a href="#proj-convassist" data-i18n="ai.tl4.title">ConvAssist: proposal submitted</a></p>
+          <p class="timeline-note" data-i18n="ai.tl4.note">Idea developed into a full research project with consortium, and the proposal submitted to a funding call.</p>
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-date">Jun–Aug 2026</span>
+          <p class="timeline-title"><a href="#proj-contract-manager" data-i18n="ai.tl2.title">Contract Manager Agent: first version built and rolled out</a></p>
+          <p class="timeline-note" data-i18n="ai.tl2.note">Requirements clarified together at the request of contract management, then built and rolled out into production.</p>
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-date">Aug–Sep 2026</span>
+          <p class="timeline-title"><a href="#proj-pm-framework" data-i18n="ai.tl3.title">Project Management Framework: first draft introduced, in development</a></p>
+          <p class="timeline-note" data-i18n="ai.tl3.note">Documentation framework and Claude Code skills for coding agents, validated in a real paper-writing project.</p>
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-date">Aug–Sep 2026</span>
+          <p class="timeline-title"><a href="#proj-ooda" data-i18n="ai.tl5.title">OOAD Agentic Skills: first draft introduced, in development</a></p>
+          <p class="timeline-note" data-i18n="ai.tl5.note">A skill set that guides coding agents through an object-oriented analysis and design workflow.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section">
+
+      <div class="card" id="proj-doc-intel">
+        <div class="card-head">
+          <h3>Document Intelligence Agent</h3>
+          <span class="badge badge-demo" data-i18n="badge.demo">Demo</span>
+        </div>
+        <p class="subtitle" data-i18n="ai.doc.subtitle">Chat-first, on-prem RAG agent for internal company documents</p>
+        <dl>
+          <dt data-i18n="dt.context">Context</dt>
+          <dd data-i18n="ai.doc.context">Internal company knowledge, held in documents of different formats, was spread across a fragmented document repository, so finding information meant searching folders by hand. Because the documents were confidential, sending them to a public-cloud AI service was not an option.</dd>
+          <dt data-i18n="dt.solution">Solution</dt>
+          <dd data-i18n="ai.doc.solution">A conversational agent rather than a keyword search: a directory crawler ingests PDF, Word (DOCX), Excel (XLSX) and PowerPoint (PPTX) files. Content is split into chunks, embedded locally and stored in LanceDB. Each question is embedded as well and matched semantically against the vector store via top-K retrieval; keyword matching is available as an alternative. The retrieved context is passed to a local LLM, which writes a synthesized answer and cites the documents it used; the backend parses those citations and the frontend renders a Reference Documents panel with a clickable link to every original. Access is role-based at folder level: on an admin page, users are assigned roles and each role is granted specific document folders, so the document tree, search and chat only draw on the folders a user may see.</dd>
+          <dt data-i18n="dt.technologies">Technologies</dt>
+          <dd class="tech-list">
+            <span class="tech-chip">Python</span>
+            <span class="tech-chip">FastAPI</span>
+            <span class="tech-chip">Ollama (Llama 3.2, nomic-embed-text)</span>
+            <span class="tech-chip">LanceDB</span>
+            <span class="tech-chip">Next.js / TypeScript</span>
+            <span class="tech-chip">RBAC with folder-level permissions</span>
+          </dd>
+          <dt data-i18n="dt.outcome">Outcome</dt>
+          <dd data-i18n="ai.doc.outcome">A fully local pipeline (Ollama, LanceDB) keeps all data on-prem with no license dependencies on external AI providers. Role-based folder access model for multiple users; answers are grounded and cited, giving faster access to internal knowledge and reducing repetitive-question load. The result is a working demo, not yet a production-ready product. The demo was presented in a workshop for regional managers of the Magdeburg Chamber of Industry and Commerce and received interest and positive feedback from a company.</dd>
+        </dl>
+        <figure class="screenshot">
+          <a href="assets/DIS.png" target="_blank" rel="noopener" data-i18n-aria-label="ai.doc.figureAlt">
+            <img src="assets/DIS.png" alt="" loading="lazy" width="1277" height="806" />
+          </a>
+          <figcaption data-i18n="ai.doc.figureCaption">User interface of the Document Intelligence Agent.</figcaption>
+        </figure>
+      </div>
+
+      <div class="card" id="proj-convassist">
+        <div class="card-head">
+          <h3>ConvAssist</h3>
+          <span class="badge badge-idea" data-i18n="badge.conceptProposal">Concept / proposal phase</span>
+        </div>
+        <p class="subtitle" data-i18n="ai.convassist.subtitle">LLM-based conversational care assistant for people with chronic conditions such as Alzheimer's</p>
+        <dl>
+          <dt data-i18n="dt.context">Context</dt>
+          <dd data-i18n="ai.convassist.context">People with chronic conditions such as Alzheimer's who want to stay at home are cared for alternately by family members and professional caregivers. Coordination is hard: reminders such as medication, meals, and drinking are missed, phone calls become difficult, and information between relatives and care services is passed on through calls, messengers, or notes that get lost or reach the wrong person.</dd>
+          <dt data-i18n="dt.solution">Solution</dt>
+          <dd data-i18n="ai.convassist.solution">ConvAssist is an LLM-based conversational assistant that the affected person talks to in natural language, on a dedicated device with voice, video and touch interaction. It gives calendar-based reminders (medication, meals, drinking, appointments) and connects relatives and care services through shared apps, so information reaches the right person. Optional extensions add wearable-based health monitoring and automatic emergency alerting.</dd>
+          <dt data-i18n="dt.outcome">Outcome</dt>
+          <dd data-i18n="ai.convassist.outcome">The project idea was developed with the team into a complete concept for the funding proposal. The acquisition itself (project consortium and funding submission) is described under <a href="project-management.html#proj-acquisition">Project Acquisition &amp; Consortium Leadership</a>.</dd>
+        </dl>
+      </div>
+
+      <div class="card" id="proj-contract-manager">
+        <div class="card-head">
+          <h3>Contract Manager Agent</h3>
+          <span class="badge badge-live" data-i18n="badge.inProductiveUse">In productive use</span>
+        </div>
+        <p class="subtitle" data-i18n="ai.contract.subtitle">AI agent for automated support in contract review</p>
+        <dl>
+          <dt data-i18n="dt.context">Context</dt>
+          <dd data-i18n="ai.contract.context">Consortium and research contracts arriving from project partners had to be checked clause by clause against the internal standard template, previously signed contracts, and contract management's accumulated review comments. This process was time-consuming and error-prone. Because contracts are confidential, no external AI service was an option, so only small local LLMs could be used.</dd>
+          <dt data-i18n="dt.solution">Solution</dt>
+          <dd data-i18n="ai.contract.solution">
+            Two approaches were implemented. The first version passes the whole contract to a local LLM. The second is a deterministic pipeline that limits each LLM evaluation to one clause and its best template matches:
+            <br />• <strong>Parser</strong>: splits the contract into clauses and extracts comments and tracked changes with their text anchors via direct Office XML access, turning past review comments into structured knowledge.
+            <br />• <strong>Similarity matcher</strong>: embeds every clause with a multilingual sentence-transformer and computes a pairwise cosine-similarity matrix against the knowledge base; tiered thresholds (strong / moderate / weak) select candidate counterparts per clause and flag clauses with no match.
+            <br />• <strong>Evaluator</strong>: a locally hosted LLM judges which candidates truly correspond to the clause and returns risk level, finding type, a comment ready for the counterparty, a suggested reformulation and an internal source note. A deterministic step then combines all findings into an overall risk score and approval recommendation.
+          </dd>
+          <dt data-i18n="dt.technologies">Technologies</dt>
+          <dd class="tech-list">
+            <span class="tech-chip">Python</span>
+            <span class="tech-chip">FastAPI</span>
+            <span class="tech-chip" data-i18n="ai.contract.chip.localLLM">Local LLM (llama.cpp / Ollama)</span>
+            <span class="tech-chip">sentence-transformers</span>
+            <span class="tech-chip">python-docx + Office XML</span>
+            <span class="tech-chip">React / TypeScript</span>
+            <span class="tech-chip">Docker</span>
+          </dd>
+          <dt data-i18n="dt.outcome">Outcome</dt>
+          <dd data-i18n="ai.contract.outcome">The tool was specified together with contract management and is in productive use there; the team finds it useful. Reviewers get an assessment with a ready-to-send comment and source reference for each clause. As an on-premise application, it keeps all processing within the internal network. The clause-by-clause approach works as well; a systematic comparison of both approaches, involving the users, is still pending.</dd>
+        </dl>
+        <figure class="screenshot screenshot-diagram screenshot-wide">
+          <a href="assets/contract-manager-pipeline-uml.svg" target="_blank" rel="noopener" data-i18n-aria-label="ai.contract.figureAlt">
+            <img src="assets/contract-manager-pipeline-uml.svg" alt="" loading="lazy" width="1120" height="350" />
+          </a>
+          <figcaption data-i18n="ai.contract.figureCaption">Pipeline of the clause-by-clause approach as a UML activity diagram: parsing, matching and risk aggregation run deterministically, only the per-clause evaluation uses the local LLM.</figcaption>
+        </figure>
+      </div>
+
+      <div class="card" id="proj-pm-framework">
+        <div class="card-head">
+          <h3>Project Management Framework</h3>
+          <span class="badge badge-progress" data-i18n="badge.inProgress">In progress</span>
+        </div>
+        <p class="subtitle" data-i18n="ai.framework.subtitle">Project management framework with reusable agent skills for consistent, traceable and AI-assisted project records</p>
+        <dl>
+          <dt data-i18n="dt.context">Context</dt>
+          <dd data-i18n="ai.framework.context">Research and engineering projects accumulate critical knowledge, rationale, decisions, and meeting outcomes in ad-hoc formats. This leads to knowledge loss when team members change, slow onboarding, and an inability to reconstruct why decisions were made.</dd>
+          <dt data-i18n="dt.solution">Solution</dt>
+          <dd data-i18n="ai.framework.solution">A lifecycle-driven documentation architecture: 11 artifact types (e.g. ADRs, meeting minutes, articles, wiki entries) mapped to 6 project phases, from proposal analysis to evaluation and partner collaboration. A dedicated management repository holds process, decisions, and documentation, while code lives in separate repositories linked from a component index. Append-only ADRs with superseding preserve the full decision history, and cross-references trace decisions to meetings, components, and deliverables. 7 Claude Code skills scaffold each artifact type and enforce the conventions: naming and numbering, placeholders, an orphan policy, and a retrofit path for existing repositories.</dd>
+          <dt data-i18n="dt.technologies">Technologies</dt>
+          <dd class="tech-list">
+            <span class="tech-chip">Claude Code</span>
+            <span class="tech-chip">Agent Skills (SKILL.md)</span>
+            <span class="tech-chip">YAML frontmatter</span>
+            <span class="tech-chip">Git</span>
+          </dd>
+          <dt data-i18n="dt.outcome">Outcome</dt>
+          <dd data-i18n="ai.framework.outcome">Validated in a real paper-writing project: the article's drafts, meetings, and decisions stayed traceable in one consistently structured repository. Gaps that surfaced during use were fed back into the templates and skills, and the conventions keep being refined through further real use.</dd>
+        </dl>
+        <figure class="screenshot screenshot-diagram">
+          <a href="assets/template-structure.png" target="_blank" rel="noopener" data-i18n-aria-label="ai.framework.structureAlt">
+            <img src="assets/template-structure.png" alt="" loading="lazy" width="793" height="494" />
+          </a>
+          <figcaption data-i18n="ai.framework.structureCaption">Repository structure: skills use the templates, which are instantiated across the project folders.</figcaption>
+        </figure>
+      </div>
+
+      <div class="card" id="proj-ooda">
+        <div class="card-head">
+          <h3 data-i18n="ai.ooda.title">Object-Oriented Analysis and Design (OOAD) Agentic Skills</h3>
+          <span class="badge badge-progress" data-i18n="badge.inProgress">In progress</span>
+        </div>
+        <p class="subtitle" data-i18n="ai.ooda.subtitle">A skill set that turns single agent skills into an automated OOAD workflow for coding agents.</p>
+        <dl>
+          <dt data-i18n="dt.context">Context</dt>
+          <dd data-i18n="ai.ooda.context">As coding agents take on more of the actual implementation work, it gets harder to keep an overview of the code they produce. Keeping that code object-oriented makes it possible to derive class diagrams from it: a comprehensive view of what the agent built, which gives more control over the code and makes code review easier.</dd>
+          <dt data-i18n="dt.solution">Solution</dt>
+          <dd data-i18n="ai.ooda.solution">
+            An orchestrator skill runs the workflow. It confirms inputs with the user, runs the individual steps in order and passes each result to the next step as a file. Runs can therefore be repeated and resumed after context loss. Each step is a skill of its own:
+            <br />• repository inventory
+            <br />• spec conformance against UML diagrams
+            <br />• OO-purity audit
+            <br />• fix planning, with each fix approved by the user before it's applied
+            <br />• class-diagram generation
+            <br />The brownfield track audits and refactors existing code. A greenfield track that
+            goes from requirements to UML design is in progress.
+          </dd>
+          <dt data-i18n="dt.technologies">Technologies</dt>
+          <dd class="tech-list">
+            <span class="tech-chip">Python</span>
+            <span class="tech-chip">Agent Skills (SKILL.md)</span>
+            <span class="tech-chip">PlantUML</span>
+            <span class="tech-chip">JSON</span>
+          </dd>
+          <dt data-i18n="dt.outcome">Outcome</dt>
+          <dd data-i18n="ai.ooda.outcome">7 skills, with a greenfield track in progress, built to the Agent Skills specification. Each skill has its own scripts, references and assets. The skills are harness-agnostic and designed to run in any Agent Skills–compatible harness, such as pi, Claude Code and opencode.</dd>
+        </dl>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p>© 2026 Parva Yazdani</p>
+      <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/in/parva-yazdani" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

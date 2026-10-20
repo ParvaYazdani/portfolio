@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="doc.title.wireless">Wireless Communication | Parva Yazdani</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="nav-brand" href="index.html">Parva Yazdani</a>
+      <button class="nav-toggle" data-i18n-aria-label="nav.toggleAria" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="project-management.html" data-i18n="nav.pm">Project Management</a></li>
+        <li><a href="wireless-communication.html" aria-current="page" data-i18n="nav.wireless">Wireless Communication</a></li>
+        <li><a href="ai-engineering.html" data-i18n="nav.ai">AI Engineering</a></li>
+        <li class="nav-lang-item"><button class="lang-toggle" type="button">DE</button></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-intro">
+      <h1 data-i18n="wl.h1">Wireless Communication</h1>
+      <p data-i18n="wl.intro">
+        Where it started: from student research assistant and a VDI award-winning
+        master's thesis into the wireless
+        industrial communication team, through to contributing to cross-organizational research projects and current concept work.
+      </p>
+    </section>
+
+    <section class="section">
+
+      <div class="card">
+        <div class="card-head">
+          <h3 data-i18n="wl.thesis.title">Industrial Wireless Communication Modeling &amp; Simulation</h3>
+          <span class="badge badge-finished" data-i18n="badge.mastersThesis">Master's thesis</span>
+        </div>
+        <p class="subtitle" data-i18n="wl.thesis.subtitle">Digital twin for an Industry 4.0 negotiation scenario</p>
+        <dl>
+          <dt data-i18n="dt.context">Context</dt>
+          <dd data-i18n="wl.thesis.context">In Industry 4.0, wireless communication systems have to adapt themselves to changing production requirements instead of being planned for the worst case. For this, the production system and the wireless communication system need to exchange data so that communication resources can be managed efficiently.</dd>
+          <dt data-i18n="dt.technologies">Technologies</dt>
+          <dd class="tech-list">
+            <span class="tech-chip">OMNeT++</span>
+            <span class="tech-chip">AAS</span>
+            <span class="tech-chip">SIMBA</span>
+            <span class="tech-chip">UML</span>
+          </dd>
+          <dt data-i18n="dt.outcome">Outcome</dt>
+          <dd data-i18n="wl.thesis.outcome">The master's thesis <em><a href="assets/Wireless_Industry_4_0_Negotiation_Scenario.pdf" target="_blank" rel="noopener">"Wireless Industry 4.0 Negotiation Scenario"</a></em> (May 2022) developed a digital twin of an Industry 4.0 negotiation scenario in OMNeT++ based on the Asset Administration Shell. Through this administration shell, industrial assets exchange data with a wireless system manager in the wireless communication system, which can then keep the use of the wireless medium at an efficient level. The thesis also generated the basic module for communication models in SIMBA and documented a roadmap for porting the scenario from OMNeT++ to SIMBA. SIMBA is a simulation environment developed by the Institut für Automation und Kommunikation e.V. (ifak e.V.) in Magdeburg for model-based solutions in the water, wastewater and biogas sectors, originally not designed for communication models. The results were published as a paper and presented at the 17th EKA 2022 conference: P. Yazdani, G. Cainelli, <em><a href="https://www.researchgate.net/publication/381551869_Managing_communication_resources_based_on_production_requirements_in_an_Industry_40_scenario_using_a_digital_twin_approach" target="_blank" rel="noopener">"Managing communication resources based on production requirements in an Industry 4.0 scenario using a digital twin approach."</a></em> Awarded the VDI sponsorship award for master's theses.</dd>
+        </dl>
+      </div>
+
+      <div class="card" id="proj-5giwcow">
+        <div class="card-head">
+          <h3>5GiwCow</h3>
+          <span class="badge badge-finished" data-i18n="badge.finished">Finished</span>
+        </div>
+        <p class="subtitle" data-i18n="wl.5g.subtitle">"5G Industrial Working and Co-Working Space" (funded research project)</p>
+        <dl>
+          <dt data-i18n="dt.context">Context</dt>
+          <dd data-i18n="wl.5g.context">Deploying a dedicated non-public 5G network is expensive for a single company. 5GiwCow investigated whether co-located companies at the Technology Park Ostfalen could share one non-public 5G network (operated by local
+        provider TELEPORT) across very different applications: welding-robot programming, fuel-cell test-bench automation, video-based material-flow monitoring, and remote robot control. Funded by Germany's Federal Ministry of Transport and Digital Infrastructure.</dd>
+          <dt data-i18n="dt.technologies">Technologies</dt>
+          <dd class="tech-list">
+            <span class="tech-chip">OMNeT++</span>
+            <span class="tech-chip">Simu5G</span>
+            <span class="tech-chip">UML</span>
+            <span class="tech-chip" data-i18n="wl.chip.5gnr">5G NR channel modeling</span>
+            <span class="tech-chip" data-i18n="wl.chip.rs">Rohde &amp; Schwarz TSMA measurements</span>
+          </dd>
+          <dt data-i18n="dt.outcome">Outcome</dt>
+          <dd data-i18n="wl.5g.outcome">The project delivered a UML-based model of the shared wireless industrial automation system and <strong>VANSIM</strong>, a 5G network simulation platform, calibrated and validated against real drive-test measurements. Simulated signal strength closely matched the measurements. These results were published as a paper and presented at the 24th VDI Congress AUTOMATION 2023: P. Yazdani, G. Cainelli, L. Underberg, <em><a href="https://www.researchgate.net/publication/372042140_Shared_5G_campus_network_in_industrial_working_and_co-working_spaces" target="_blank" rel="noopener">"Shared 5G campus network in industrial working and co-working spaces."</a></em> The simulated transmission time, by contrast, did not match the measurements, because the processing time of the communication devices was not measured and therefore not considered in the model. This gap prompted the <a href="#proj-vansim">extended VANSIM concept</a>.</dd>
+        </dl>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3 data-i18n="wl.arch.title">Generalized Architecture for Joint Optimization of Communication and Control System</h3>
+          <span class="badge badge-finished" data-i18n="badge.finished">Finished</span>
+        </div>
+        <p class="subtitle" data-i18n="wl.arch.subtitle">Joint communication and control co-design</p>
+        <dl>
+          <dt data-i18n="dt.context">Context</dt>
+          <dd data-i18n="wl.arch.context">Industrial automation increasingly requires tight integration between wireless communication and control systems. Joint optimization addresses the interdependence between communication performance and control stability by treating them as coupled systems rather than optimizing them separately.</dd>
+          <dt data-i18n="dt.outcome">Outcome</dt>
+          <dd data-i18n="wl.arch.outcome">The work presents a generalized architecture for the joint optimization of communication and control systems. In 2023, the Industrial Radio Lab Germany held its workshops for young researchers at Industrial Radio Day in Bremen (<a href="https://industrial-radio-lab.eu/2023/08/08/workshops-fuer-junge-forschende-beim-industrial-radio-day-2023-in-bremen/" target="_blank" rel="noopener">link</a>); I led the workshop on Communication and Control Co-Design (CoCoCo), where participants exchanged knowledge on the topic. The results were published as a paper and presented as a poster at the IEEE International Conference on Emerging Technologies and Factory Automation (ETFA 2024) in Padova, Italy; I also presented the paper at the next edition of the workshop series, held the day before Industrial Radio Day 2024 in Kaiserslautern: P. Yazdani, L. Underberg, <em><a href="https://www.researchgate.net/publication/384341737_Generalized_Architecture_for_Joint_Optimization_of_Communication_and_Control_System" target="_blank" rel="noopener">"Generalized Architecture for Joint Optimization of Communication and Control System."</a></em></dd>
+        </dl>
+      </div>
+
+      <div class="card" id="proj-vansim">
+        <div class="card-head">
+          <h3 data-i18n="wl.vansim.title">VANSIM: extended concept</h3>
+          <span class="badge badge-idea" data-i18n="badge.conceptProposal">Concept / proposal phase</span>
+        </div>
+        <p class="subtitle" data-i18n="wl.vansim.subtitle">Follow-up project proposal, building on the VANSIM simulation platform delivered in 5GiwCow</p>
+        <dl>
+          <dt data-i18n="dt.context">Context</dt>
+          <dd data-i18n="wl.vansim.context">VANSIM started as the 5G network simulation platform delivered within <a href="#proj-5giwcow">5GiwCow</a>, built on OMNeT++/Simu5G and validated against real drive tests at the Technology Park Ostfalen, recorded with the Rohde &amp; Schwarz TSMA mobile network scanner. The goal of the extended concept is to increase system reliability by reducing the planning gaps between simulation and reality. The main part of the concept is an AI-based error and time behavior model: a model is to be trained on measurement data captured under defined, reproducible influence factors and application requirements, to reproduce the time and error behavior of relevant applications and infrastructure components and to estimate it under various conditions, so that continuous measurements are not necessary. For the training phase, devices at the application interface are to be measured, including hardware and firmware, capturing the communication behavior of potential applications (data lengths, transmission cycles, aperiodic transmissions, transport protocols) and environment influences such as other radio communication systems, frequency spectrum utilization, electromagnetic emitters (e.g. microwaves or RFID), signal strength, and multipath propagation.</dd>
+          <dt data-i18n="dt.outcome">Outcome</dt>
+          <dd data-i18n="wl.vansim.outcome">The project idea was developed into a complete concept for the follow-up funding proposal. The acquisition itself (project consortium and funding submission) is described under <a href="project-management.html#proj-acquisition">Project Acquisition &amp; Consortium Leadership</a>.</dd>
+        </dl>
+      </div>
+
+      <div class="card" id="proj-whitepaper">
+        <div class="card-head">
+          <h3>Whitepaper: "From Lessons Learned in 5G to Innovative Solutions in 6G"</h3>
+          <span class="badge badge-finished" data-i18n="badge.published">Published</span>
+        </div>
+        <p class="subtitle" data-i18n="wl.whitepaper.subtitle">Editorial leadership of a whitepaper translating 5G research into 6G recommendations</p>
+        <dl>
+          <dt data-i18n="dt.context">Context</dt>
+          <dd data-i18n="wl.whitepaper.context">As we move to 6G, it is important to pay attention to the challenges faced in 5G and learn from them. This work offers exactly that: it gathers expert opinions and project experiences into a systematic documentation of challenges, lessons and actionable design principles.</dd>
+          <dt data-i18n="dt.outcome">Outcome</dt>
+          <dd data-i18n="wl.whitepaper.outcome">A whitepaper published in January 2026 on the website of the 6G Platform Germany (<a href="https://www.6g-platform.com/whitepaper/" target="_blank" rel="noopener">6g-platform.com/whitepaper</a>), with one editor, four authors and 15 contributors from industry and research, endorsed by eight further experts. Based on an expert survey, literature review, standards and real-world non-public network deployments, it documents the main 5G bottlenecks: high deployment costs, complex configuration and unavailable 5G functions. From these, it derives seven actionable recommendations for 6G: from modular network architecture and guaranteed backward compatibility to native L2 support, AI-driven automation, standardised interoperability testing, aligned standardisation roadmaps and continued R&amp;D investment. The survey results (figures, reports and raw data) are published at <a href="https://github.com/ParvaYazdani/WG3_6GPlatform_SurveyResults" target="_blank" rel="noopener">github.com/ParvaYazdani/WG3_6GPlatform_SurveyResults</a>.</dd>
+        </dl>
+        <figure class="poster">
+          <a href="assets/Poster%20EUCNC.png" target="_blank" rel="noopener" data-i18n-aria-label="wl.whitepaper.posterAlt">
+            <img src="assets/Poster%20EUCNC.png" alt="" loading="lazy" width="300" height="424" />
+          </a>
+          <figcaption data-i18n="wl.whitepaper.posterCaption">Poster presented at the EUCNC &amp; 6G Summit in Málaga in June 2026.</figcaption>
+        </figure>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p>© 2026 Parva Yazdani</p>
+      <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/in/parva-yazdani" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
