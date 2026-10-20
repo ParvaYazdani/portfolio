@@ -1,0 +1,54 @@
+@startuml template-structure
+!pragma layout smetana
+' Documentation template: repository structure as a UML package diagram.
+' Mirrors project_management_framework/MANAGEMENT.md (Directory structure).
+' Dependencies use standard UML stereotypes: «use», «instantiate», «trace».
+
+skinparam defaultFontName Sans-Serif
+skinparam shadowing false
+skinparam packageStyle folder
+skinparam ArrowFontSize 11
+skinparam nodesep 30
+skinparam ranksep 50
+
+top to bottom direction
+
+package "management repository" {
+  package ".claude/skills/\n(7 skills for the core artifact types)" as skills {
+  }
+  package "templates/" as templates {
+  }
+  package "project/\n(master document)" as projectDir {
+  }
+  package "management/" as management {
+    package "decisions/" as decisions {
+    }
+    package "meetings/" as meetings {
+    }
+  }
+  package "wiki/" as wiki {
+  }
+  package "blog/" as blog {
+  }
+  package "references/" as references {
+  }
+  package "software/" as software {
+  }
+  package "articles/" as articles {
+  }
+  package "presentations/" as presentations {
+  }
+  package "artifacts/" as artifacts {
+  }
+}
+
+skills ..> templates : <<use>>
+templates ..> management : <<instantiate>>
+templates ..> wiki : <<instantiate>>
+templates ..> blog : <<instantiate>>
+templates ..> references : <<instantiate>>
+templates ..> software : <<instantiate>>
+templates ..> articles : <<instantiate>>
+management ..> projectDir : <<trace>>
+
+@enduml

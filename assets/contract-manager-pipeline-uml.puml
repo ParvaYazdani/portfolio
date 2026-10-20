@@ -1,0 +1,43 @@
+@startuml contract-manager-pipeline
+' UML activity diagram: Clause-by-clause evaluation (Contract Manager Agent), left to right.
+' Styled like the Project Management Framework diagrams (template-*.puml): PlantUML defaults, Sans-Serif.
+' Uses the legacy activity syntax: the current syntax cannot lay out left to right.
+' Render: plantuml -tsvg contract-manager-pipeline-uml.puml  (or paste into plantuml.com/plantuml)
+' Post-processing: the legacy syntax draws every node rounded; in the published SVG/PNG the
+' three <<object>> nodes (contracts, report) are set to square corners (rx/ry = 0).
+
+skinparam defaultFontName Sans-Serif
+skinparam shadowing false
+skinparam ArrowFontSize 11
+skinparam packageStyle rectangle
+skinparam ranksep 30
+skinparam nodesep 20
+
+left to right direction
+
+partition Deterministic {
+(*) --> ===F1===
+===F1=== --> "Template contract\n[.docx]" as T <<object>>
+===F1=== --> "Target contract\n[.docx]" as G <<object>>
+T --> ===F2===
+G --> ===F2===
+===F2=== --> "Parse clauses" as P
+P --> "Match to template" as M
+}
+
+' Declared before the LLM lane so these nodes stay in a Deterministic lane
+partition "Deterministic " {
+"Aggregate risk" as A --> "Report\n[UI, .docx]" as R <<object>>
+R --> (*)
+}
+
+partition "Local LLM" {
+M --> "Evaluate clause" as E
+E --> if "" then
+  -->[more clauses] E
+else
+  -->[all evaluated] A
+endif
+}
+
+@enduml
